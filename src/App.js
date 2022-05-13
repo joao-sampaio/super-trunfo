@@ -28,71 +28,33 @@ class App extends React.Component {
   handeChange({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    // let value
-    // if (target.type === 'checkbox') {
-    //   value = target.checked
-    // } else if (target.type === 'button') {
-    //   const {
-    //     cardName,
-    //     cardDescription,
-    //     cardAttr1,
-    //     cardAttr2,
-    //     cardAttr3,
-    //     cardImage,
-    //     cardRare } = this.state
-    //   value = (cardName !== '' && 
-    //   cardDescription !== '' && 
-    //   cardImage !== '' && 
-    //   cardRare !== '' && 
-    //   cardAttr1 <= 90 && 
-    //   cardAttr2 <= 90 && 
-    //   cardAttr3 <= 90 && 
-    //   cardAttr1 > 0 && 
-    //   cardAttr2 > 0 && 
-    //   cardAttr3 > 0 && 
-    //   cardAttr1 + cardAttr2 + cardAttr3 <= 210
-    //   ) ? true : false
-    //   console.log(value)
-    // } else {
-    //   value = target.value
-    // }
 
-    // cardName !== '' && 
-    // cardDescription !== '' && 
-    // cardImage !== '' && 
-    // cardRare !== '' && 
-    // cardAttr1 <= 90 && 
-    // cardAttr2 <= 90 && 
-    // cardAttr3 <= 90 && 
-    // cardAttr1 > 0 && 
-    // cardAttr2 > 0 && 
-    // cardAttr3 > 0 && 
-    // cardAttr1 + cardAttr2 + cardAttr3 <= 210
-    
     const {
       cardName,
       cardDescription,
       cardAttr1,
       cardAttr2,
       cardAttr3,
-      cardImage } = this.state
-    const save = ( 
-      cardName !== '' && 
-      cardDescription !== '' && 
-      cardImage !== '' && 
-      cardAttr1 <= 90 && 
-      cardAttr2 <= 90 && 
-      cardAttr3 <= 90 && 
-      cardAttr1 > 0 && 
-      cardAttr2 > 0 && 
-      cardAttr3 > 0 && 
-      cardAttr1 + cardAttr2 + cardAttr3 <= 210
-    ) ? false : true
+      cardImage } = this.state;
+    const maxAttr = 90;
+    const maxTotalAttr = 210;
+    const save = !((
+      cardName !== ''
+      && cardDescription !== ''
+      && cardImage !== ''
+      && cardAttr1 <= maxAttr
+      && cardAttr2 <= maxAttr
+      && cardAttr3 <= maxAttr
+      && cardAttr1 > 0
+      && cardAttr2 > 0
+      && cardAttr3 > 0
+      && cardAttr1 + cardAttr2 + cardAttr3 <= maxTotalAttr
+    ));
     this.setState({
       [name]: value,
-      ['isSaveButtonDisabled']: save
+      isSaveButtonDisabled: save,
     });
-    console.log(this.state)
+    console.log(this.state);
   }
 
   handeClick({ target }) {
@@ -113,7 +75,7 @@ class App extends React.Component {
       isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick } = this.state;
-    console.log(isSaveButtonDisabled)
+    console.log(isSaveButtonDisabled);
     return (
       <div className="body">
         <CreateCardForm
