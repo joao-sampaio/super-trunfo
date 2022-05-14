@@ -16,6 +16,7 @@ class CreateCardForm extends React.Component {
       isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick } = this.props;
+
     return (
       <form>
         Adicionar nova carta
@@ -37,6 +38,7 @@ class CreateCardForm extends React.Component {
           <textarea
             rows={ 5 }
             cols={ 5 }
+            maxLength={ 120 }
             id="description"
             name="cardDescription"
             data-testid="description-input"
@@ -110,19 +112,21 @@ class CreateCardForm extends React.Component {
             <option value="muito raro">Muito raro</option>
           </select>
         </label>
-
-        <label htmlFor="trunfo">
-          Super Trunfo:
-          <input
-            id="trunfo"
-            name="cardTrunfo"
-            type="checkbox"
-            data-testid="trunfo-input"
-            checked={ cardTrunfo }
-            onChange={ onInputChange }
-          />
-        </label>
-
+        {hasTrunfo ? (
+          <h5>Você já tem um Super Trunfo em seu baralho</h5>
+        ) : (
+          <label htmlFor="trunfo">
+            Super Trunfo:
+            <input
+              id="trunfo"
+              name="cardTrunfo"
+              type="checkbox"
+              data-testid="trunfo-input"
+              checked={ cardTrunfo }
+              onChange={ onInputChange }
+            />
+          </label>
+        )}
         <section>
           <button
             type="button"

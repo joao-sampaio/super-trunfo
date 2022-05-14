@@ -15,7 +15,6 @@ class Card extends React.Component {
 
     return (
       <div className="card">
-        <h1>Pré-visualização</h1>
         <h2 data-testid="name-card">{cardName}</h2>
         {
           cardImage !== '' && <img
@@ -24,10 +23,12 @@ class Card extends React.Component {
             alt={ cardName }
           />
         }
-        <h3 data-testid="description-card">{cardDescription}</h3>
-        <h4 data-testid="attr1-card">{cardAttr1}</h4>
-        <h4 data-testid="attr2-card">{cardAttr2}</h4>
-        <h4 data-testid="attr3-card">{cardAttr3}</h4>
+        <h6 data-testid="description-card">{cardDescription}</h6>
+        <div className="attrs-div">
+          <h4 className="attr1" data-testid="attr1-card">{cardAttr1}</h4>
+          <h4 className="attr2" data-testid="attr2-card">{cardAttr2}</h4>
+          <h4 className="attr3" data-testid="attr3-card">{cardAttr3}</h4>
+        </div>
         <p data-testid="rare-card">{cardRare}</p>
         { cardTrunfo && <h5 data-testid="trunfo-card">Super Trunfo</h5> }
       </div>

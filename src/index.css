@@ -13,9 +13,20 @@ body {
   display: flex;
   flex-flow: wrap;
   justify-content: space-between;
+  background-color: rgb(23, 107, 79);
+}
+
+.deck {
+  margin-top: 30px;
+  background-color: rgb(54, 54, 54);
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-around;
 }
 
 form {
+  background-color: white;
+  color: black;
   display: flex;
   flex-flow: column nowrap;
   border: solid 5px white;
@@ -30,14 +41,48 @@ form {
   text-align: center;
   display: flex;
   flex-flow: column nowrap;
-  border: solid 5px white;
-  width: 40%;
+  border: solid 5px rgb(54, 54, 211);
+  border-radius: 18px;
+  background-color: black;
+  width: 220px;
+  height: 350px;
   /* border-radius: 5px; */
-  height: 500px;
   justify-content: space-evenly;
   align-items: center;
 }
 
+.card * {
+  margin: 0;
+}
+
+.card img {
+  width: 200px;
+  border-radius: 18px;
+}
+
+.attrs-div {
+  width: 180px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.attr1 {
+  background-color: red;
+  border-radius: 15px;
+  border: 3px solid red;
+}
+
+.attr2 {
+  background-color: green;
+  border-radius: 15px;
+  border: 3px solid green;
+}
+
+.attr3 {
+  background-color: blue;
+  border-radius: 15px;
+  border: 3px solid blue;
+}
 
 label {
   display: flex;
